@@ -1,0 +1,18 @@
+/*Color Palette */
+:root {
+    --primary-color: #FF6600; /* ORANGE */
+    --secondary-color: #607A75; /* GRAY */
+    --text-color: #333; /* Dark Gray */
+    --link-color: #4D9FB2; /* Dodger Blue */
+    --hover-color: #819C71; /* Darker Green on hover */
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #F4F4F4; /* Light Gray Background */
+    color: var(--text-color);
+}
