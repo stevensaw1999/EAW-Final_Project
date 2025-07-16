@@ -8,11 +8,28 @@
 }
 
 /* Global Styles */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #F4F4F4; /* Light Gray Background */
-    color: var(--text-color);
+header {
+    background-color: var(--text-color);
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav li {
+    display: inline;
 }
