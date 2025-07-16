@@ -21,8 +21,6 @@ header {
     width: 100%;
     overflow-x: hidden;
     box-sizing: border-box;
-
-    
 }
 
 nav a {
@@ -72,6 +70,28 @@ body {
     
 }
 
+form {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+    width: 30%;
+    margin: 0 auto;      
+    max-width: 400px;    
+    
+}
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+/* Footer section */
 span {
     color: var(--link-color);
     font-weight: bold;
