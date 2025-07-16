@@ -14,22 +14,65 @@ header {
     padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    position: sticky;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    top: 0;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 
     
 }
 
 nav a {
     text-decoration: none;
-    color: white;
+    color: var(--primary-color);
 }
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
+    justify-content: center;;
 }
 
 nav li {
     display: inline;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Section Styles */
+#careers, #pro-staff{
+    padding: 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    margin: 2px;
+    border-radius: 8px;
+}
+
+#careers ul, #pro-staff ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+#partners {
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    margin: 2px;
+    
+}
+
+span {
+    color: var(--link-color);
+    font-weight: bold;
 }
