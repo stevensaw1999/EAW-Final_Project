@@ -10,7 +10,7 @@
 
 /* Global Styles */
 header {
-    background-color: var(--text-color);
+    background-color: white;;
     color: white;
     padding: 10px;
     display: flex;
