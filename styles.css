@@ -5,6 +5,7 @@
     --text-color: #333; /* Dark Gray */
     --link-color: #4D9FB2; /* Dodger Blue */
     --hover-color: #819C71; /* Darker Green on hover */
+    --impact-color: #3ABFBA; /* 10 yr impact blue */
 }
 
 /* Global Styles */
@@ -70,6 +71,21 @@ body {
     
 }
 
+#impact {
+    padding: 20px;
+    background-color: var(--impact-color);
+    color: white;
+    border-radius: 8px;
+    margin: 2px;
+}
+
+#impact img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
 form {
     padding: 10px;
     display: flex;
@@ -91,7 +107,12 @@ button[type="submit"] {
     transition: background 0.2s;
 }
 
+
 /* Footer section */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+}
 span {
     color: var(--link-color);
     font-weight: bold;

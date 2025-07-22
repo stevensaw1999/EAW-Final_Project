@@ -1,8 +1,9 @@
 "use strict"; // Using Strict Mode
 
-$(document).ready(function() {
-    // Your jQuery code here
-    $('nav a').on('click', function() {
-        alert('Navigation link clicked!');
-    });
+// Slide Show of student pictures, who have worked at Education at Work
+$(document).ready(function(){
+  $('.slideshow').slick({
+    autoplay: true,
+    dots: true
+  });
 });
