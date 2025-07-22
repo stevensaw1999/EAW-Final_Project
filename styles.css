@@ -46,6 +46,16 @@ body {
     padding: 0;
 }
 
+.job-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
 /* Section Styles */
 #careers, #pro-staff{
     padding: 20px;
