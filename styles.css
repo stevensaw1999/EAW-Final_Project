@@ -117,80 +117,10 @@ body {
 }
 
 /* Professional Staff Section */
-
-.employee-slideshow {
-    max-width: 600px;
-    margin: 30px auto;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
+#prof-staff {
+    background-color: var(--secondary-color);
 }
 
-.employee-slideshow .slide {
-    position: relative;
-    text-align: center;
-}
-
-.employee-slideshow img {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-    display: block;
-}
-
-.slide-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.slide-caption h4 {
-    margin: 0 0 5px 0;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.slide-caption p {
-    margin: 0;
-    font-size: 0.9em;
-    opacity: 0.9;
-}
-
-.employee-slideshow .slick-dots {
-    bottom: -50px;
-}
-
-.employee-slideshow .slick-dots li button:before {
-    color: var(--primary-color);
-    font-size: 12px;
-}
-
-.employee-slideshow .slick-dots li.slick-active button:before {
-    color: var(--primary-color);
-}
-
-/* Customize Arrows */
-.employee-slideshow .slick-prev,
-.employee-slideshow .slick-next {
-    z-index: 1;
-    width: 40px;
-    height: 40px;
-}
-
-.employee-slideshow .slick-prev {
-    left: 10px;
-}
-
-.employee-slideshow .slick-next {
-    right: 10px;
-}
-    
 #apply {
     display: flex;
     flex-direction: column;
