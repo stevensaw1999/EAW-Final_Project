@@ -1,9 +1,15 @@
 "use strict"; // Using Strict Mode
 
 $(document).ready(function() {
-    // Initialize Employee Slideshow
-    console.log('Initializing slideshow...');
+    // Initialize jQuery UI Accordion for images
+    $("#accordion").accordion({
+        collapsible: true,
+        active: false,
+        heightStyle: "content",
+        animate: 300
+    });
     
+    // Create Accordion Bios
     if ($('.employee-slideshow').length > 0) {
         $('.employee-slideshow').slick({
             autoplay: true,
@@ -14,8 +20,6 @@ $(document).ready(function() {
             speed: 500,
             cssEase: 'ease-in-out',
             pauseOnHover: true,
-            prevArrow: '<button type="button" class="slick-prev">‹</button>',
-            nextArrow: '<button type="button" class="slick-next">›</button>',
             responsive: [
                 {
                     breakpoint: 768,
@@ -26,9 +30,7 @@ $(document).ready(function() {
                 }
             ]
         });
-        console.log('Slideshow initialized successfully!');
-    } else {
-        console.log('Slideshow element not found!');
     }
 });
+
 

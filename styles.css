@@ -186,6 +186,70 @@ span {
     font-weight: bold;
 }
 
+/* jQuery UI Accordion Customization */
+#accordion {
+    max-width: 800px;
+    margin: 30px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#accordion .ui-accordion-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 15px 20px;
+    font-size: 1.1em;
+}
+
+#accordion .ui-accordion-header:hover {
+    background: linear-gradient(135deg, var(--hover-color), var(--primary-color));
+}
+
+#accordion .ui-accordion-header.ui-state-active {
+    background: linear-gradient(135deg, var(--text-color), var(--secondary-color));
+}
+
+#accordion .ui-accordion-content {
+    background: white;
+    border: none;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#accordion .ui-accordion-content img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+#accordion .ui-accordion-content p {
+    flex: 1;
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+/* Mobile responsive for accordion */
+@media screen and (max-width: 768px) {
+    #accordion .ui-accordion-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    #accordion .ui-accordion-content img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
 
 /* Responsive Windows */
 @media screen and (max-width: 768px) {

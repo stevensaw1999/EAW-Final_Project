@@ -9,12 +9,16 @@
     <link rel="stylesheet" href="styles.css">   
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    
     <!-- Slick Carousel CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
     <!-- Add JS Source File and jQuery for plugins -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="main.js" defer></script>
 
@@ -67,13 +71,40 @@
         </section>
     </div>
     <section id="pro-staff">
+        <!-- Implement Accordion Style Panel-->
         <h2>Professional Careers</h2>
         <p>Join our team of dedicated professionals who are committed to empowering students.</p>
-        <ul>
-            <li>Career coaches</li>
-            <li>Program managers</li>
-            <li>Corporate partners</li>
-        </ul>
+        <div id="accordion">
+            <h3>Jane Swift, President of Education At Work</h3>
+            <div>
+                <img src="img/JaneSwiftBio.png" alt="Jane Swift, CEO">
+                <p>Jane Swift brings over 20 years of leadership experience in education and workforce development.</p>
+            </div>
+            
+            <h3>Ismail Khan, Chief Financial Officer</h3>
+            <div>
+                <img src="img/IsmailsBio.png" alt="Ismail Khan, Chief Financial Officer">
+                <p>Ismail oversees all financial operations and strategic planning for Education At Work.</p>
+            </div>
+            
+            <h3>Jamie Northrup, Executive Vice President of Growth</h3>
+            <div>
+                <img src="img/JamieNorthrupBio.png" alt="Jamie Northrup, Executive Vice President of Growth">
+                <p>Jamie leads our expansion efforts and partnership development initiatives.</p>
+            </div>
+            
+            <h3>Kelly Reed, Executive Vice President of Operations</h3>
+            <div>
+                <img src="img/KellyReedBio.png" alt="Kelly Reed, Executive Vice President of Operations">
+                <p>Kelly manages daily operations and ensures program excellence across all locations.</p>
+            </div>
+            
+            <h3>Benjamin Liam, Chief Technology Officer</h3>
+            <div>
+                <img src="img/BenjaminLiamBio.png" alt="Benjamin Liam, Senior Vice President of Operations">
+                <p>Benjamin leads our operations and program delivery efforts.</p>
+            </div>
+        </div>
     </section>
     <section id="partners">
         <h2>Our Partners</h2>
