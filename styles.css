@@ -2,25 +2,7 @@
 :root {
     --primary-color: #FF6600; /* ORANGE */
     --secondary-color: #607A75; /* GRAY */
- /* Professional Staff Section */
-#pro-staff {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 40px;
-    border-radius: 8px;
-    margin: 2px;
-}
-
-#pro-staff h2 {
-    color: white;
-    text-align: center;
-    font-size: 2em;
-}
-
-#pro-staff p {
-    text-align: center;
-    padding-bottom: 20px;
-}-text-color: #333; /* Dark Gray */
+    --text-color: #333; /* Dark Gray */
     --link-color: #4D9FB2; /* Dodger Blue */
     --hover-color: #819C71; /* Darker Green on hover */
     --impact-color: #3ABFBA; /* 10 yr impact blue */
@@ -136,7 +118,9 @@ body {
 
 /* Professional Staff Section */
 #pro-staff {
-    background-color: white;
+    background-color: var(--secondary-color);
+    padding: 20px;
+    color: white;
 }
 
 /* jQuery UI Accordion Customization */
@@ -175,8 +159,8 @@ body {
 }
 
 #accordion .ui-accordion-content img {
-    width: 150px;
-    height: 150px;
+    width: 700px;
+    height: 900px;
     object-fit: cover;
     border-radius: 8px;
     flex-shrink: 0;
