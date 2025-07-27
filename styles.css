@@ -40,6 +40,8 @@ nav li {
     display: inline;
 }
 
+/* End Header and Navigation Section*/
+
 
 body {
     margin: 0;
@@ -248,8 +250,8 @@ span {
     }
     
     #accordion .ui-accordion-content img {
-        width: 120px;
-        height: 120px;
+        width: 450px;
+        height: 450px;
     }
 }
 
@@ -305,4 +307,5 @@ span {
         color: white;
         border-radius: 8px;
     }
+
 }
