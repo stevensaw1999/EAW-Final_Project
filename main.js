@@ -20,6 +20,8 @@ $(document).ready(function() {
             speed: 500,
             cssEase: 'ease-in-out',
             pauseOnHover: true,
+
+            // Responsive settings for the slideshow
             responsive: [
                 {
                     breakpoint: 768,
@@ -34,3 +36,4 @@ $(document).ready(function() {
 });
 
 
+// Section for Loading API Data from Google Maps

@@ -91,7 +91,7 @@ body {
 
 #careers {
     padding: 40px;
-    background-color: var(--text-color);
+    background-color: var(--hover-color);
     color: white;
     border-radius: 8px;
     margin: 2px;
@@ -123,8 +123,24 @@ body {
     background-color: var(--secondary-color);
     padding: 20px;
     color: white;
+    
 }
 
+#pro-staff h2 {
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+#pro-staff p {
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: white;
+}
 /* jQuery UI Accordion Customization */
 #accordion {
     max-width: 800px;
@@ -250,7 +266,7 @@ span {
     }
     
     #accordion .ui-accordion-content img {
-        width: 450px;
+        width: 250px;
         height: 450px;
     }
 }
@@ -303,9 +319,15 @@ span {
     #careers {
         padding-left: 20px;
         padding: 20px;
-        background-color: var(--text-color);
-        color: white;
         border-radius: 8px;
     }
+
+    #accordion .ui-accordion-content img {
+    width: 700px;
+    height: 900px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
 
 }
