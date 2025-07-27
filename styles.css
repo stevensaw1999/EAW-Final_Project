@@ -2,7 +2,25 @@
 :root {
     --primary-color: #FF6600; /* ORANGE */
     --secondary-color: #607A75; /* GRAY */
-    --text-color: #333; /* Dark Gray */
+ /* Professional Staff Section */
+#pro-staff {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 40px;
+    border-radius: 8px;
+    margin: 2px;
+}
+
+#pro-staff h2 {
+    color: white;
+    text-align: center;
+    font-size: 2em;
+}
+
+#pro-staff p {
+    text-align: center;
+    padding-bottom: 20px;
+}-text-color: #333; /* Dark Gray */
     --link-color: #4D9FB2; /* Dodger Blue */
     --hover-color: #819C71; /* Darker Green on hover */
     --impact-color: #3ABFBA; /* 10 yr impact blue */
@@ -117,8 +135,8 @@ body {
 }
 
 /* Professional Staff Section */
-#prof-staff {
-    background-color: var(--secondary-color);
+#pro-staff {
+    background-color: white;
 }
 
 /* jQuery UI Accordion Customization */
@@ -131,7 +149,7 @@ body {
 }
 
 #accordion .ui-accordion-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* Adds company color gradient to the accordion tabs */
     border: none;
     color: white;
     font-weight: bold;
