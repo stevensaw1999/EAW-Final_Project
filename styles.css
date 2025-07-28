@@ -177,8 +177,6 @@ body {
 }
 
 #accordion .ui-accordion-content img {
-    width: 700px;
-    height: 900px;
     object-fit: cover;
     border-radius: 8px;
     flex-shrink: 0;
@@ -258,21 +256,7 @@ span {
     font-weight: bold;
 }
 
-/* Mobile responsive for accordion */
-@media screen and (max-width: 768px) {
-    #accordion .ui-accordion-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    #accordion .ui-accordion-content img {
-        width: 250px;
-        height: 450px;
-    }
-}
-
-
-/* Responsive Windows */
+/* Adjust Viewport for Video, and Accordion, Should be Friendily in Mobile View */
 @media screen and (max-width: 768px) {
     .video-container {
         flex-direction: column;
@@ -298,12 +282,28 @@ span {
     .job-btn {
         width: 30%;
     }
+
+    #accordion .ui-accordion-content img {
+        width: 350px;
+        height: 450px;
+    }
+
+    #accordion .ui-accordion-content {
+        flex-direction: column;
+        text-align: center;
+    }
 }
+
+/* Adjusting Window Size for Regular Browser Viewing */
 @media screen and (min-width: 769px){
     #video {
         width: 50%;              
         max-width: 560px;        
         margin: 0 auto;
+    }
+
+    #video p {
+        padding-bottom: 25px;
     }
     
     #video iframe {
