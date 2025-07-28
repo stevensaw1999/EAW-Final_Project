@@ -11,13 +11,19 @@ $(document).ready(function() {
 
     // Initialize Slick Carousel Functionality for partners section
     $('.partner-carousel').slick({
+
+        // Allows the Slides to Auto-Play depending on playspeed - I chose for it to display 3 companies per slide
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
+
+        // Removes unnecessary Next/Previous Buttons and Removes Numbered Buttons
         dots: false,
         arrows: false,
         responsive: [
+
+            // Fix Breakpoints for Responsive Mobile to Web Browser Design
             {
                 breakpoint: 769, 
                 settings: {
@@ -40,5 +46,5 @@ $(document).ready(function() {
     });
 });
 
-// Section for Loading Slick Carousel
+
 
