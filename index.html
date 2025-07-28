@@ -13,10 +13,13 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 
     <!-- Add JS Source File and jQuery for plugins -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="main.js" defer></script>
-
+    
+    <!-- Slick Carousel CSS and JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 </head>
 <body>
     <header>
@@ -97,16 +100,21 @@
             </div>
         </div>
     </section>
+
     <!-- Implement Slideshow Panel Showing Previous and Current Education At Work Partners -->
     <section id="partners">
         <h2>Our Partners</h2>
         <p>We collaborate with leading companies to provide students with real-world work experience.</p>
-        <ul>
-            <li>Discover Financial Services</li>
-            <li>Fidelity</li>
-            <li>First Financial Bank</li>
-        </ul>
+        <div class="partner-carousel">
+            <img src="img/ASU_Logo.png" alt="Arizona State University Logo">
+            <img src="img/UTEP_Logo.png" alt="University of Texas at El Paso Logo">
+            <img src="img/Discover_Logo.png" alt="Discover Financial Services Logo">
+            <img src="img/Microsoft_Logo.png" alt="Microsoft Logo">
+            <img src="img/Intuit_logo.png" alt="Intuit Logo">
+            <img src="img/Fidelity_Logo.png" alt="Fidelity Logo">
+        </div>
     </section>
+
     <section id="impact">
         <h2>Our Impact</h2>
         <p>Education At Work has made a significant impact on students' lives by providing them with the skills and experience needed to succeed in their careers.</p>
