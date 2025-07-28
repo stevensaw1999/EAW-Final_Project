@@ -8,6 +8,8 @@ $(document).ready(function() {
         heightStyle: "content",
         animate: 300
     });
+
+    $("")
 });
 
 // Section for Loading API Data from Google Maps
