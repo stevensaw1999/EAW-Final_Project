@@ -356,6 +356,7 @@ button[type="submit"] {
 footer {
     background-color: var(--secondary-color);
     color: white;
+    padding-bottom: 10px;
 }
 
 footer h2 {
