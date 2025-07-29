@@ -202,7 +202,7 @@ document.getElementById("googlemap_input").addEventListener("input", function ()
         }
         statusDiv.style.color = "#dc3545";
       });
-  }, 800); // Wait 800ms after user stops typing
+  }, 800); // Wait 800ms after user stops typing, prevents excessive API calls - I went over the limit while testing... oops
 });
 
 }); // End of document ready function
