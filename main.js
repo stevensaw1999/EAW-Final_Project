@@ -47,13 +47,35 @@ $(document).ready(function() {
         ]
     });
 
-    // Initialize Google Map
+    // Initialize Google Map 
     window.initMap = function() {
-        const map = new google.maps.Map(document.getElementById("map-container"), {
-            center: { lat: 39.8283, lng: -98.5795 }, // Center of USA
-            zoom: 4,
-        });
+        // Check if Google Maps API is loaded
+        if (typeof google !== 'undefined' && google.maps) {
+            const map = new google.maps.Map(document.getElementById("google-map"), {
+                center: { lat: 39.8283, lng: -98.5795 }, // Center of USA
+                zoom: 4,
+            });
+            
+            // Add a marker for Education At Work headquarters 
+            const marker = new google.maps.Marker({
+                position: { lat: 42.3601, lng: -71.0589 },
+                map: map,
+                title: 'Education At Work'
+            });
+        } else {
+            console.log('Google Maps API not loaded');
+            // Show a fallback message
+            const mapDiv = document.getElementById("google-map");
+            if (mapDiv) {
+                mapDiv.innerHTML = '<div style="padding: 20px; text-align: center; background-color: #f0f0f0; border: 2px dashed #ccc;">Google Maps API not available. Please add a valid API key to display the map.</div>';
+            }
+        }
     };
+
+    // Call initMap directly if Google Maps API isn't loaded
+    if (typeof google === 'undefined') {
+        initMap();
+    }
 
     // JS Code for Google Maps API
 document.getElementById("googlemap_input").addEventListener("input", function () {

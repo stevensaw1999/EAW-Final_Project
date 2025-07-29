@@ -17,9 +17,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="main.js" defer></script>
     
-    <!-- Google Maps API - Replace with your actual Google Maps API key -->
+    <!-- Google Maps API Key -->
     <script async
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqVpJ-JLPwcb99o9nIqBFiOIotgvS0oRM&callback=initMap">
     </script>
     
     <!-- Slick Carousel CSS and JS -->
@@ -126,11 +126,14 @@
         <img src="img/EAW_Impact_Image.png" alt="Education At Work Impact Image">
     </section>
 
+    <!-- Maps Section not working correctly :( -->
     <section id="map">
         <h2>Our Locations</h2>
         <p>Find out where we operate and how we can help students in your area.</p>
         <div id="map-container">
-            <!-- Google Map will be initialized here -->
+            <!-- Google Map will be displayed here -->
+            <div id="google-map" style="width: 100%; height: 400px; margin-bottom: 20px;"></div>
+            <!-- Search functionality -->
             <input type="text" id="googlemap_input" placeholder="Search for a place">
             <ul id="results"></ul>
         </div> <!-- Set up div id for call in JS -->

@@ -265,6 +265,79 @@ button[type="submit"] {
     border-radius: 8px;
 }
 
+/* Map Section Styles */
+#map {
+    padding: 20px;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+#map h2 {
+    text-align: center;
+    font-size: 2em;
+    color: white;
+}
+
+#map p {
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: white;
+    padding-bottom: 20px;
+}
+
+#map-container {
+    margin: 20px 0;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#google-map {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#googlemap_input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#results {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+}
+
+#results li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: var(--text-color);
+}
+
+#results li:hover {
+    background-color: #f5f5f5;
+}
+
+#results li:last-child {
+    border-bottom: none;
+}
+
 
 
 /* Footer section */
@@ -363,48 +436,5 @@ span {
     width: 100%;
     object-fit: cover;
     border-radius: 8px;
-}
-
-/* Map Section Styles */
-#map-container {
-    margin: 20px 0;
-}
-
-#googlemap_input {
-    width: 100%;
-    max-width: 400px;
-    padding: 10px;
-    border: 2px solid var(--secondary-color);
-    border-radius: 5px;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-#results {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    max-width: 400px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    max-height: 200px;
-    overflow-y: auto;
-    background-color: white;
-}
-
-#results li {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-#results li:hover {
-    background-color: #f5f5f5;
-}
-
-#results li:last-child {
-    border-bottom: none;
-}
-
-}
+    }
+}   
