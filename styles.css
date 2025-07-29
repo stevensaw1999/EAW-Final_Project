@@ -258,6 +258,20 @@ button[type="submit"] {
     color: black;
 }
 
+#impact h2 {
+    text-align: center;
+    font-size: 2em;
+    color: var(--text-color);
+}
+
+#impact p {
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: var(--text-color);
+    padding-bottom: 20px;
+}
+
 #impact img {
     height: 350px;
     width: 100%;
@@ -345,6 +359,20 @@ footer {
     background-color: var(--secondary-color);
     color: white;
 }
+
+footer h2 {
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+    padding: 20px;
+}
+footer p {
+    text-align: center;
+    padding: 2px;
+    font-size: 1em;
+}
+
+
 span {
     color: var(--link-color);
     font-weight: bold;
