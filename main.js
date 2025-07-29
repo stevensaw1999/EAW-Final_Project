@@ -187,16 +187,16 @@ document.getElementById("googlemap_input").addEventListener("input", function ()
         
         // Show user-friendly error messages
         if (error.message.includes('401')) {
-          resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ Invalid API Key</li>";
+          resultsList.innerHTML = "<li style='padding: 10px; color: red;'>Invalid API Key</li>";
           statusDiv.textContent = "API Key Error";
         } else if (error.message.includes('403')) {
-          resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ API Limit Exceeded</li>";
+          resultsList.innerHTML = "<li style='padding: 10px; color: red;'>API Limit Exceeded</li>";
           statusDiv.textContent = "API Limit Exceeded";
         } else if (error.message.includes('429')) {
-          resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ Too Many Requests - Please wait</li>";
+          resultsList.innerHTML = "<li style='padding: 10px; color: red;'>Too Many Requests - Please wait</li>";
           statusDiv.textContent = "Rate Limited - Please wait";
         } else {
-          resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ Search Error</li>";
+          resultsList.innerHTML = "<li style='padding: 10px; color: red;'>Search Error</li>";
           statusDiv.textContent = "Search Error";
         }
         statusDiv.style.color = "#dc3545";
