@@ -131,6 +131,17 @@ form {
     
 }
 
+button[type="submit"] {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
 /* Professional Staff Section */
 #pro-staff {
     background-color: var(--secondary-color);
@@ -253,16 +264,7 @@ form {
     object-fit: cover;
     border-radius: 8px;
 }
-button[type="submit"] {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.2s;
-}
+
 
 
 /* Footer section */
@@ -361,6 +363,48 @@ span {
     width: 100%;
     object-fit: cover;
     border-radius: 8px;
+}
+
+/* Map Section Styles */
+#map-container {
+    margin: 20px 0;
+}
+
+#googlemap_input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#results {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+}
+
+#results li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#results li:hover {
+    background-color: #f5f5f5;
+}
+
+#results li:last-child {
+    border-bottom: none;
 }
 
 }
