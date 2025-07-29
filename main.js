@@ -1,6 +1,6 @@
 "use strict"; // Using Strict Mode
 
-const RAPIDAPI_KEY = '5c615a369emshebf286614108016p101146jsn0f5419658a2f';
+//const RAPIDAPI_KEY = '5c615a369emshebf286614108016p101146jsn0f5419658a2f'; Reached API Call Limit - I have to disable
 
 $(document).ready(function() {
     // Initialize jQuery UI Accordion for professional staff bios
