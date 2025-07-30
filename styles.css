@@ -403,7 +403,7 @@ button[type="submit"] {
 
 /* Footer section */
 footer {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: white;
     padding-bottom: 10px;
 }
