@@ -7,7 +7,6 @@
     <meta name="author" content="Steven Saw">
     <meta name="description" content="Education At Work - Empowering students through work experience and education.">
     <link rel="stylesheet" href="styles.css">   
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     
     <!-- jQuery UI CSS -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -23,17 +22,13 @@
     </script>
     
     <!-- Slick Carousel CSS and JS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 </head>
 <body>
     <header>
-        <img src="img/1 EAWLogo(Green&Orange).jpg" alt="Education At Work Green and Orange LOGO" style="height: 60px;">
-        
-        <!-- CSS-only hamburger menu -->
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        
-        <nav id="nav-menu">
+        <img src="img/EAWLogo-Green-Orange.jpg" alt="Education At Work Green and Orange LOGO" style="height: 60px;">
+        <nav>
             <ul>
                 <li><a href="#careers">Student Careers</a></li>
                 <li><a href="#pro-staff">Professional Careers</a></li>
@@ -41,12 +36,6 @@
                 <li><a href="#impact">Our Impact</a></li>
             </ul>
         </nav>
-        
-        <label for="nav-toggle" class="nav-toggle-label">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </label>
     </header>
     
 <main>
@@ -59,13 +48,15 @@
         </a>
         
         <div class="video-container">
-            <section id="video">
+            <div id="video">
+                <h3>Learn More About Us</h3>
                 <p>Learn more about how Education At Work empowers students through work experience.</p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/mc_rIWiAVus?si=HFqKITvvzs-u-epS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </section>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mc_rIWiAVus?si=HFqKITvvzs-u-epS" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
 
             <!-- Form for Students to Apply-->
-            <section id="apply">
+            <div id="apply">
+                <h3>Apply Now</h3>
                 <form action="submit-form" method="POST">
                     <label for="f-name">First Name:</label>
                     <input type="text" id="f-name" name="f-name" required>
@@ -82,7 +73,7 @@
                     <button type="submit">Submit Application</button>
                     <p>By submitting this form, you agree to our <a href="/privacy-policy">Privacy Policy</a>.</p>
                 </form>
-            </section>
+            </div>
         </div>
     </section>
 
