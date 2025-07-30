@@ -4,6 +4,21 @@
 const RAPIDAPI_KEY = null;
 
 $(document).ready(function() {
+    // Create a Web Storage Mock Login Functionality within the Web Page
+    function createUser(e){
+      
+      e.preventDefault(); // Prevent default form submission
+    }
+
+        // Simulate a login process
+        if (username === "testuser" && password === "password123") {
+            // Store user information in sessionStorage
+            sessionStorage.setItem("user", JSON.stringify({ username }));
+            return true;
+        }
+        return false;
+    };
+
     // Initialize jQuery UI Accordion for professional staff bios
     $("#accordion").accordion({
         collapsible: true,
@@ -47,6 +62,8 @@ $(document).ready(function() {
             }
         ]
     });
+
+
 
     // Initialize Google Map 
     window.initMap = function() {
