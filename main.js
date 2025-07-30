@@ -4,20 +4,82 @@
 const RAPIDAPI_KEY = null;
 
 $(document).ready(function() {
-    // Create a Web Storage Mock Login Functionality within the Web Page
-    function createUser(e){
-      
-      e.preventDefault(); // Prevent default form submission
+    // Web Storage functionality for form submissions
+    function createUser(e) {
+        e.preventDefault(); // Prevent default form submission
+
+        // Get form inputs
+        let fnameInput = document.getElementById("f-name");
+        let lnameInput = document.getElementById("l-name");
+        let emailInput = document.getElementById("email");
+        let resumeInput = document.getElementById("resume");
+
+        // Validate inputs
+        if (!fnameInput.value.trim() || !lnameInput.value.trim() || !emailInput.value.trim()) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+
+        // Create user object
+        const userData = {
+            firstName: fnameInput.value.trim(),
+            lastName: lnameInput.value.trim(),
+            email: emailInput.value.trim(),
+            resumeFile: resumeInput.files[0] ? resumeInput.files[0].name : null,
+            submittedAt: new Date().toISOString()
+        };
+
+        try {
+            // Store user data in localStorage
+            localStorage.setItem("eaw_application", JSON.stringify(userData));
+            
+            // Also store in sessionStorage for current session
+            sessionStorage.setItem("current_user", JSON.stringify(userData));
+            
+            // Success feedback
+            alert(`Application submitted successfully!\nName: ${userData.firstName} ${userData.lastName}\nEmail: ${userData.email}`);
+            
+            // Clear form
+            document.querySelector('#apply form').reset();
+            
+            console.log("User data stored:", userData);
+            
+        } catch (error) {
+            console.error("Error storing user data:", error);
+            alert("Error submitting application. Please try again.");
+        }
     }
 
-        // Simulate a login process
-        if (username === "testuser" && password === "password123") {
-            // Store user information in sessionStorage
-            sessionStorage.setItem("user", JSON.stringify({ username }));
+    // Bind the createUser function to form submission
+    const applicationForm = document.querySelector('#apply form');
+    if (applicationForm) {
+        applicationForm.addEventListener('submit', createUser);
+    }
+
+    // Function to retrieve stored user data
+    function getStoredUserData() {
+        try {
+            const storedData = localStorage.getItem("eaw_application");
+            return storedData ? JSON.parse(storedData) : null;
+        } catch (error) {
+            console.error("Error retrieving user data:", error);
+            return null;
+        }
+    }
+
+    // Function to check if user has previously applied
+    function checkPreviousApplication() {
+        const userData = getStoredUserData();
+        if (userData) {
+            console.log("Previous application found:", userData);
+            // Optionally pre-fill form or show message
             return true;
         }
         return false;
-    };
+    }
+
+    // Check for previous applications on page load
+    checkPreviousApplication();
 
     // Initialize jQuery UI Accordion for professional staff bios
     $("#accordion").accordion({
