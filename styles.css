@@ -10,11 +10,12 @@
 
 /* Global Styles */
 header {
-    background-color: white;;
+    background-color: white;
     color: white;
     padding: 10px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: sticky;
     z-index: 1000;
     backdrop-filter: blur(10px);
@@ -24,20 +25,135 @@ header {
     box-sizing: border-box;
 }
 
+/* Hamburger Menu Button */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+}
+
 nav a {
     text-decoration: none;
     color: var(--primary-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--primary-color);
+    color: white;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
-    justify-content: center;;
+    gap: 10px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 nav li {
     display: inline;
+}
+
+/* Mobile Navigation Styles */
+@media screen and (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: white;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        padding-top: 80px;
+        z-index: 999;
+    }
+    
+    nav.active {
+        right: 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 20px;
+    }
+    
+    nav li {
+        display: block;
+        border-bottom: 1px solid #eee;
+    }
+    
+    nav li:last-child {
+        border-bottom: none;
+    }
+    
+    nav a {
+        display: block;
+        padding: 15px 20px;
+        color: var(--text-color);
+        border-radius: 0;
+    }
+    
+    nav a:hover {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    /* Hamburger Animation */
+    .nav-toggle.active .hamburger-line:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .nav-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav-toggle.active .hamburger-line:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* Overlay for mobile menu */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 998;
+}
+
+.nav-overlay.active {
+    display: block;
 }
 
 /* End Header and Navigation Section*/
@@ -61,21 +177,12 @@ body {
     margin: 0 auto;
 }
 
-#video {
-    width: 560px;
-    min-width: 300px;
-    height: 55vh;
-    background-size: cover;
-    background-position: center;
-    align-items: center;
-    justify-content: center;
-}
-
 .video-container {
     display: flex;
     gap: 40px; /* space between video and form */
     align-items: flex-start;
     justify-content: center;
+    margin-top: 30px; /* Add some space above the video container */
 }
 
 /* Careers Section */
@@ -115,7 +222,13 @@ body {
 
 #video p {
     padding-bottom: 25px;
+}
 
+#video iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    border-radius: 8px;
 }
 
 form {
@@ -126,9 +239,7 @@ form {
     max-width: 400px;
     min-width: 250px;
     margin: 0 auto;      
-    max-width: 400px;    
     flex: 1;
-    
 }
 
 button[type="submit"] {
@@ -201,6 +312,8 @@ button[type="submit"] {
 }
 
 #accordion .ui-accordion-content img {
+    width: 200px;
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
     flex-shrink: 0;
@@ -405,13 +518,15 @@ span {
     }
 
     #accordion .ui-accordion-content img {
-        width: 350px;
-        height: 450px;
+        width: 450px;
+        height: 550px;
+        max-width: 90%;
     }
 
     #accordion .ui-accordion-content {
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
 
     #impact img {
@@ -451,11 +566,11 @@ span {
     }
 
     #accordion .ui-accordion-content img {
-    width: 700px;
-    height: 900px;
-    object-fit: cover;
-    border-radius: 8px;
-    flex-shrink: 0;
+        width: 750px;
+        height: 1000px;
+        object-fit: cover;
+        border-radius: 8px;
+        flex-shrink: 0;
     }
     
     #impact img {

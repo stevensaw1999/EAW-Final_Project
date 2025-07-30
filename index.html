@@ -29,7 +29,15 @@
 <body>
     <header>
         <img src="img/1 EAWLogo(Green&Orange).jpg" alt="Education At Work Green and Orange LOGO" style="height: 60px;">
-        <nav>
+        
+        <!-- Hamburger menu button for mobile -->
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        
+        <nav id="nav-menu">
             <ul>
                 <li><a href="#careers">Student Careers</a></li>
                 <li><a href="#pro-staff">Professional Careers</a></li>
@@ -38,6 +46,10 @@
             </ul>
         </nav>
     </header>
+    
+    <!-- Navigation overlay for mobile -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+    
 <main>
     <!-- Emphasizing EAW's strength of building Student Career Impact -->
     <section id="careers">
@@ -46,33 +58,34 @@
         <a href="https://jobs.lever.co/educationatwork" class="job-btn">
             Search Our Job Listings
         </a>
-    <div class="video-container">
-        <section id="video">
-            <p>Learn more about how Education At Work empowers students through work experience.</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/mc_rIWiAVus?si=HFqKITvvzs-u-epS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </section>
+        
+        <div class="video-container">
+            <section id="video">
+                <p>Learn more about how Education At Work empowers students through work experience.</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mc_rIWiAVus?si=HFqKITvvzs-u-epS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
 
-    <!-- Form for Students to Apply-->
-        <section id="apply">
-            <form action="submit-form" method="POST">
-                <label for="F-name">First Name:</label>
-                <input type="text" id="f-name" name="f-name" required>
+            <!-- Form for Students to Apply-->
+            <section id="apply">
+                <form action="submit-form" method="POST">
+                    <label for="f-name">First Name:</label>
+                    <input type="text" id="f-name" name="f-name" required>
 
-                <label for="L-name">Last Name:</label>
-                <input type="text" id="l-name" name="l-name" required>
+                    <label for="l-name">Last Name:</label>
+                    <input type="text" id="l-name" name="l-name" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
 
-                <label for="resume">Upload Resume:</label>
-                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                    <label for="resume">Upload Resume:</label>
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
 
-                <button type="submit">Submit Application</button>
-                <p>By submitting this form, you agree to our <a href="/privacy-policy">Privacy Policy</a>.</p>
-            </form>
-        </section>
+                    <button type="submit">Submit Application</button>
+                    <p>By submitting this form, you agree to our <a href="/privacy-policy">Privacy Policy</a>.</p>
+                </form>
+            </section>
+        </div>
     </section>
-    </div>
 
     <section id="pro-staff">
         <!-- Implement Accordion Style Panel-->
@@ -94,9 +107,9 @@
                 <img src="img/JamieNorthrupBio.png" alt="Jamie Northrup, Executive Vice President of Growth">
             </div>
             
-            <h3>Kelly Reed, Executive Vice President of Shared Services</h3>
+            <h3>Kelly Reed, Senior Vice President of Shared Services</h3>
             <div>
-                <img src="img/KellyReedBio.png" alt="Kelly Reed, Executive Vice President of Operations">
+                <img src="img/KellyReedBio.png" alt="Kelly Reed, Senior Vice President of Shared Services">
             </div>
             
             <h3>Benjamin Liam, Senior Vice President of Operations</h3>
