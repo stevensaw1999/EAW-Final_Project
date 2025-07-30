@@ -30,12 +30,8 @@
     <header>
         <img src="img/1 EAWLogo(Green&Orange).jpg" alt="Education At Work Green and Orange LOGO" style="height: 60px;">
         
-        <!-- Hamburger menu button for mobile -->
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
+        <!-- CSS-only hamburger menu -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
         
         <nav id="nav-menu">
             <ul>
@@ -45,10 +41,13 @@
                 <li><a href="#impact">Our Impact</a></li>
             </ul>
         </nav>
+        
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </label>
     </header>
-    
-    <!-- Navigation overlay for mobile -->
-    <div class="nav-overlay" id="nav-overlay"></div>
     
 <main>
     <!-- Emphasizing EAW's strength of building Student Career Impact -->

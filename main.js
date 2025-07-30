@@ -4,52 +4,6 @@
 const RAPIDAPI_KEY = null;
 
 $(document).ready(function() {
-    // Mobile Navigation Toggle
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navOverlay = document.getElementById('nav-overlay');
-    
-    // Toggle mobile navigation
-    function toggleNavigation() {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        navOverlay.classList.toggle('active');
-        
-        // Prevent body scroll when menu is open
-        if (navMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    }
-    
-    // Close navigation
-    function closeNavigation() {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        navOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    
-    // Event listeners
-    navToggle.addEventListener('click', toggleNavigation);
-    navOverlay.addEventListener('click', closeNavigation);
-    
-    // Close menu when clicking on navigation links
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', closeNavigation);
-    });
-    
-    // Close menu on window resize if window becomes larger
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            closeNavigation();
-        }
-    });
-
-    // End Navigation Section
-
     // Initialize jQuery UI Accordion for professional staff bios
     $("#accordion").accordion({
         collapsible: true,
