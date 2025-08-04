@@ -1,5 +1,9 @@
 "use strict"; // Using Strict Mode
 
+// Slick Plugin https://kenwheeler.github.io/slick
+// Used Course Material for Third Party API Integration
+// https://jqueryui.com/accordion for Accordion Functionality
+
 //const RAPIDAPI_KEY = '5c615a369emshebf286614108016p101146jsn0f5419658a2f'; Reached API Call Limit - I have to disable
 const RAPIDAPI_KEY = null;
 
