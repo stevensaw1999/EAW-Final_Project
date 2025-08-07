@@ -162,133 +162,169 @@ $(document).ready(function() {
     }
 
     // JS Code for Google Maps API with throttling to prevent excessive calls
-let searchTimeout;
-let lastQuery = '';
+    let searchTimeout;  // Stores timeout reference for debouncing
+    let lastQuery = ''; // Prevents duplicate searches for the same thing
 
-document.getElementById("googlemap_input").addEventListener("input", function () {
-  const query = this.value.trim();
-  const statusDiv = document.getElementById("search-status");
+    // Event listener for search input - triggers when user types in the search box
+    document.getElementById("googlemap_input").addEventListener("input", function () {
+        const query = this.value.trim();                           // Get what the user typed, cleaned up
+        const statusDiv = document.getElementById("search-status"); // Element to show search status messages
 
-  // Clear any existing timeout
-  if (searchTimeout) {
-    clearTimeout(searchTimeout);
-  }
-
-  // Clear results if query is too short
-  if (query.length < 3) {
-    document.getElementById("results").innerHTML = "";
-    statusDiv.textContent = query.length > 0 ? "Type at least 3 characters to search" : "";
-    return;
-  }
-
-  // Don't search if it's the same query as before
-  if (query === lastQuery) {
-    return;
-  }
-
-  // Show waiting message
-  statusDiv.textContent = "Searching in 0.8 seconds...";
-  statusDiv.style.color = "#999";
-
-  // Wait 800ms after user stops typing before making API call
-  searchTimeout = setTimeout(() => {
-    lastQuery = query;
-    statusDiv.textContent = "Searching...";
-    statusDiv.style.color = "#007bff";
-    console.log('Making API call for:', query);
-    
-    const url = 'https://google-map-places-new-v2.p.rapidapi.com/v1/places:autocomplete';
-
-    const options = {
-      method: 'POST',
-      headers: {
-        'x-rapidapi-key': RAPIDAPI_KEY,
-        'x-rapidapi-host': 'google-map-places-new-v2.p.rapidapi.com',
-        'Content-Type': 'application/json',
-        'X-Goog-FieldMask': '*'
-      },
-      body: JSON.stringify({
-        input: query,
-        location: { latitude: 37.7749, longitude: -122.4194 },
-        radius: 5000
-      })
-    };
-
-    fetch(url, options)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        // Clear any existing timeout - resets the timer if user is still typing
+        if (searchTimeout) {
+            clearTimeout(searchTimeout);
+            console.log("Cleared previous search timeout");
         }
-        return response.json();
-      })
-      .then(data => {
-        console.log('API Response:', data);
-        const resultsList = document.getElementById("results");
-        resultsList.innerHTML = "";
 
-        const predictions = data.predictions || [];
-
-        if (predictions.length > 0) {
-          statusDiv.textContent = `Found ${predictions.length} result${predictions.length > 1 ? 's' : ''}`;
-          statusDiv.style.color = "#28a745";
-
-          predictions.forEach(place => {
-            const li = document.createElement("li");
-            li.textContent = place.description;
-            li.style.cursor = "pointer";
-            li.style.padding = "10px";
-            li.style.borderBottom = "1px solid #eee";
-            li.style.transition = "background-color 0.2s";
-            
-            // Add hover effect
-            li.addEventListener('mouseenter', function() {
-              this.style.backgroundColor = '#f5f5f5';
-            });
-            li.addEventListener('mouseleave', function() {
-              this.style.backgroundColor = 'white';
-            });
-            
-            // Add click to select functionality
-            li.addEventListener('click', function() {
-              document.getElementById("googlemap_input").value = this.textContent;
-              document.getElementById("results").innerHTML = "";
-              statusDiv.textContent = "Selected: " + this.textContent;
-              statusDiv.style.color = "#28a745";
-              console.log('Selected:', this.textContent);
-            });
-            
-            resultsList.appendChild(li);
-          });
-        } else {
-          resultsList.innerHTML = "<li style='padding: 10px; color: #666;'>No results found</li>";
-          statusDiv.textContent = "No results found";
-          statusDiv.style.color = "#dc3545";
+        // Clear results if query is too short - need at least 3 characters for meaningful search
+        if (query.length < 3) {
+            document.getElementById("results").innerHTML = ""; // Clear any previous results
+            statusDiv.textContent = query.length > 0 ? "Type at least 3 characters to search" : ""; // Helpful message
+            console.log("Query too short, not searching");
+            return; // Exit early
         }
-      })
-      .catch(error => {
-        console.error("API Error Details:", error);
-        const resultsList = document.getElementById("results");
+
+        // Don't search if it's the same query as before - prevents duplicate API calls
+        if (query === lastQuery) {
+            console.log("Same query as before, skipping search");
+            return;
+        }
+
+        // Show waiting message - lets user know something is happening
+        statusDiv.textContent = "Searching in 0.8 seconds...";
+        statusDiv.style.color = "#999"; // Gray color for waiting state
+        console.log("Search delayed, waiting for user to stop typing");
+
+        // Wait 800ms after user stops typing before making API call - this is the throttling part
+        searchTimeout = setTimeout(() => {
+            lastQuery = query; // Remember this query to prevent duplicates
+            statusDiv.textContent = "Searching...";
+            statusDiv.style.color = "#007bff"; // Blue color for active searching
+            console.log('Making API call for:', query);
+            
+            // Check if we have an API key - don't want to make calls without one
+            if (!RAPIDAPI_KEY) {
+                console.log("No API key available - showing disabled message");
+                statusDiv.textContent = "Places search is currently disabled"; // Let user know why it's not working
+                statusDiv.style.color = "#dc3545"; // Red color for error
+                document.getElementById("results").innerHTML = "<li style='padding: 10px; color: #666;'>Places search functionality is currently disabled to prevent API quota usage.</li>";
+                return; // Exit if no API key
+            }
+            
+            // Google Places API endpoint
+            const url = 'https://google-map-places-new-v2.p.rapidapi.com/v1/places:autocomplete';
+
+            // API request configuration - headers and request body
+            const options = {
+                method: 'POST',
+                headers: {
+                    'x-rapidapi-key': RAPIDAPI_KEY,                                    // API authentication
+                    'x-rapidapi-host': 'google-map-places-new-v2.p.rapidapi.com',     // Required host header
+                    'Content-Type': 'application/json',                               // JSON request body
+                    'X-Goog-FieldMask': '*'                                          // Return all available fields
+                },
+                body: JSON.stringify({
+                    input: query,                                        // What the user searched for
+                    location: { latitude: 37.7749, longitude: -122.4194 }, // San Francisco as reference point - could change this
+                    radius: 5000                                         // 5km search radius - reasonable area
+                })
+            };
+
+            // Make the API request with error handling
+            fetch(url, options)
+                .then(response => {
+                    console.log('API Response Status:', response.status);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`); // Throw error for bad status codes
+                    }
+                    return response.json(); // Parse the JSON response
+                })
+                .then(data => {
+                    console.log('API Response:', data); // Log the full response for debugging
+                    const resultsList = document.getElementById("results");
+                    resultsList.innerHTML = ""; // Clear previous results
+
+                    const predictions = data.predictions || []; // Get predictions array, empty array if none
+
+                    if (predictions.length > 0) {
+                        // Update status with how many results we found
+                        statusDiv.textContent = `Found ${predictions.length} result${predictions.length > 1 ? 's' : ''}`;
+                        statusDiv.style.color = "#28a745"; // Green for success
+
+                        // Create clickable list items for each result
+                        predictions.forEach(place => {
+                            const li = document.createElement("li");
+                            li.textContent = place.description; // Place name and address
+                            
+                            // Style the list item to look good and be interactive
+                            li.style.cursor = "pointer";                    // Show it's clickable
+                            li.style.padding = "10px";                      // Add some padding for touch targets
+                            li.style.borderBottom = "1px solid #eee";       // Visual separation between items
+                            li.style.transition = "background-color 0.2s";  // Smooth hover effect
+                            
+                            // Add hover effect for better user experience
+                            li.addEventListener('mouseenter', function() {
+                                this.style.backgroundColor = '#f5f5f5'; // Light gray on hover
+                            });
+                            li.addEventListener('mouseleave', function() {
+                                this.style.backgroundColor = 'white';   // Back to white when not hovering
+                            });
+                            
+                            // Add click to select functionality - lets user pick a result
+                            li.addEventListener('click', function() {
+                                document.getElementById("googlemap_input").value = this.textContent; // Fill search box with selected result
+                                document.getElementById("results").innerHTML = "";                    // Clear results list
+                                statusDiv.textContent = "Selected: " + this.textContent;             // Show what was selected
+                                statusDiv.style.color = "#28a745";                                   // Green for success
+                                console.log('User selected:', this.textContent);                     // Log the selection
+                            });
+                            
+                            resultsList.appendChild(li); // Add the list item to the results
+                        });
+                    } else {
+                        // No results found - show appropriate message
+                        resultsList.innerHTML = "<li style='padding: 10px; color: #666;'>No results found</li>";
+                        statusDiv.textContent = "No results found";
+                        statusDiv.style.color = "#dc3545"; // Red for no results
+                        console.log("No results found for query:", query);
+                    }
+                })
+                .catch(error => {
+                    // Handle API errors with user-friendly messages
+                    console.error("API Error Details:", error);
+                    const resultsList = document.getElementById("results");
+                    
+                    // Show user-friendly error messages based on the specific error
+                    if (error.message.includes('401')) {
+                        // 401 Unauthorized - bad API key
+                        resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ Invalid API Key</li>";
+                        statusDiv.textContent = "API Key Error";
+                        console.error("API key is invalid or expired");
+                    } else if (error.message.includes('403')) {
+                        // 403 Forbidden - quota exceeded or API disabled
+                        resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ API Limit Exceeded</li>";
+                        statusDiv.textContent = "API Limit Exceeded";
+                        console.error("Hit the API quota limit - need to upgrade or wait");
+                    } else if (error.message.includes('429')) {
+                        // 429 Too Many Requests - rate limiting
+                        resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ Too Many Requests - Please wait</li>";
+                        statusDiv.textContent = "Rate Limited - Please wait";
+                        console.error("Making requests too fast - need to slow down");
+                    } else {
+                        // Generic error for anything else
+                        resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ Search Error</li>";
+                        statusDiv.textContent = "Search Error";
+                        console.error("Something went wrong with the search:", error.message);
+                    }
+                    statusDiv.style.color = "#dc3545"; // Red for all error states
+                });
+        }, 800); // Wait 800ms after user stops typing, prevents excessive API calls - I went over the limit while testing... oops
         
-        // Show user-friendly error messages
-        if (error.message.includes('401')) {
-          resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ Invalid API Key</li>";
-          statusDiv.textContent = "API Key Error";
-        } else if (error.message.includes('403')) {
-          resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ API Limit Exceeded</li>";
-          statusDiv.textContent = "API Limit Exceeded";
-        } else if (error.message.includes('429')) {
-          resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ Too Many Requests - Please wait</li>";
-          statusDiv.textContent = "Rate Limited - Please wait";
-        } else {
-          resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ Search Error</li>";
-          statusDiv.textContent = "Search Error";
-        }
-        statusDiv.style.color = "#dc3545";
-      });
-  }, 800); // Wait 800ms after user stops typing, prevents excessive API calls - I went over the limit while testing... oops
-});
+        console.log("Search timeout set for 800ms - waiting for user to stop typing");
+    });
+    
+    console.log("Google Places search functionality initialized with throttling to prevent API overuse");
 
-}); // End of document ready function
-
+}); // End of document ready function - everything above runs when the page loads
 
 
