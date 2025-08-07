@@ -491,3 +491,36 @@ span {
     border-radius: 8px;
     }
 }   
+/* For extra large screen size */
+@media screen and (min-width: 1200px){
+    #video {
+        width: 60%;              
+        max-width: 800px;        
+        margin: 0 auto;
+    }
+
+    #video iframe {
+        width: 100%;             
+        height: 450px;           
+        max-width: 100%;         
+    }
+
+    .job-btn {
+        width: 20%;
+    }
+
+    #accordion .ui-accordion-content img {
+        width: 900px;
+        height: 1200px;
+        object-fit: cover;
+        border-radius: 8px;
+        flex-shrink: 0;
+    }
+    
+    #impact img {
+        height: 800px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}
