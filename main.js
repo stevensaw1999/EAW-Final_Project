@@ -297,22 +297,22 @@ $(document).ready(function() {
                     // Show user-friendly error messages based on the specific error
                     if (error.message.includes('401')) {
                         // 401 Unauthorized - bad API key
-                        resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ Invalid API Key</li>";
+                        resultsList.innerHTML = "<li style='padding: 10px; color: red;'>Invalid API Key</li>";
                         statusDiv.textContent = "API Key Error";
                         console.error("API key is invalid or expired");
                     } else if (error.message.includes('403')) {
                         // 403 Forbidden - quota exceeded or API disabled
-                        resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ API Limit Exceeded</li>";
+                        resultsList.innerHTML = "<li style='padding: 10px; color: red;'>API Limit Exceeded</li>";
                         statusDiv.textContent = "API Limit Exceeded";
                         console.error("Hit the API quota limit - need to upgrade or wait");
                     } else if (error.message.includes('429')) {
                         // 429 Too Many Requests - rate limiting
-                        resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ Too Many Requests - Please wait</li>";
+                        resultsList.innerHTML = "<li style='padding: 10px; color: red;'>Too Many Requests - Please wait</li>";
                         statusDiv.textContent = "Rate Limited - Please wait";
                         console.error("Making requests too fast - need to slow down");
                     } else {
                         // Generic error for anything else
-                        resultsList.innerHTML = "<li style='padding: 10px; color: red;'>❌ Search Error</li>";
+                        resultsList.innerHTML = "<li style='padding: 10px; color: red;'>Search Error</li>";
                         statusDiv.textContent = "Search Error";
                         console.error("Something went wrong with the search:", error.message);
                     }
